@@ -1,19 +1,28 @@
-import sys
-import platform
-import subprocess
+# compiler.py
+import os
+from PyQt5.QtWidgets import QFileDialog
 
-def get_gcc_path():
-    if platform.system() == "Windows":
-        return ".compiler/MinGWbin/gcc.exe"
-    else:
-        return "gcc"
+class Compiler:
+    def __init__(self):
+        self.gcc_path = self.detect_gcc()
 
+    def detect_gcc(self):
+        # Cherche GCC dans l'ordre : chemin custom → système
+        custom_path = "./compiler/MinGW/gcc/bin/gcc.exe"
+        if os.path.exists(custom_path):
+            return custom_path
+        return "gcc"  # Fallback système
 
-def compile_c(code, output_path):
-    gcc = get_gcc_path()
-    result = subprocess.run(
-        [gcc, "-x", "c", "-", "-o", output_path],
-        input=code.encode(),
-        capture_output=True
-    )
-    return result.returncode == 0, result.stderr.decode()
+    def compile(self, code, output_dir):
+        output_path = os.path.join(output_dir, "program")
+        cmd = [self.gcc_path, "-o", output_path, "-x", "c", "-"]
+        process = subprocess.Popen(
+            cmd,
+            stdin=subprocess.PIPE,
+            stderr=subprocess.PIPE
+        )
+        _, stderr = process.communicate(input=code.encode())
+        return process.returncode == 0, stderr.decode()
+    
+# Pour inclure GCC si bundlé
+datas = [("compiler/gcc", "compiler/gcc")]
