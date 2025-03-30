@@ -1,0 +1,3 @@
+Windows	.ico	assets/app_icon.ico
+macOS	.icns	assets/app_icon.icns
+Linux	.png (256x256)	assets/app_icon.png

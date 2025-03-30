@@ -1,5 +1,7 @@
 import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication  # Import manquant
+import os 
+from PyQt5.QtWidgets import QMainWindow, QApplication  # Import des widgets
+from PyQt5.QtGui import QIcon  # Import pour les icônes
 from compiler.compiler import Compiler
 
 class MainWindow(QMainWindow):
@@ -9,6 +11,14 @@ class MainWindow(QMainWindow):
         self._setup_ui()
         self.setWindowTitle("C Studio Code")  # Titre de la fenêtre
         self.resize(800, 600)  # Taille par défaut
+        # Chemin ABSOLU vers l'icône
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        icon_path = os.path.join(base_dir, "assets", "icones", "app_icon.ico")
+        # Vérification critique
+        if not os.path.exists(icon_path):
+            raise FileNotFoundError(f"Icône introuvable : {icon_path}")
+        
+        self.setWindowIcon(QIcon(icon_path))
 
     def _setup_ui(self):
         """Initialise l'interface utilisateur"""
