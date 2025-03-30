@@ -196,7 +196,7 @@ class MainWindow(QMainWindow):
             "About C Studio Code",
             "C Studio Code v1.0\n\n"
             "A lightweight C IDE\n"
-            "© 2023 Your Name"
+            "© 2025 - Fordi Malanda "
         )
 
 if __name__ == "__main__":
