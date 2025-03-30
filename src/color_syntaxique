@@ -1,0 +1,72 @@
+Directives préprocesseur
+--------------------------
+#include , #define ---> #569CD6 ( bleu clair ) , la constante ' CONST ' 'const' aura aussi le même couleur syntaxique
+
+
+Types de données 
+-------------------
+int , char , float , double , ... ---> #4EC9B0 ( vert cyan )
+
+
+Mots-clés de contrôle 
+-----------------------
+if , else , for, while , switch , case , break , continue, return ---> #C586C0 ( violet )
+
+
+Opérateurs logiques
+---------------------
+&& , || ... ---> D4D4D4 ( blanc/gris clair )
+
+
+Opérateurs arithmétiques 
+---------------------------
++ , - , * , / , % ---> D4D4D4 ( blanc/gris clair )
+
+
+Constantes numériques
+-------------------------
+42 , 3.14 -- > #B5CEA8 ( vert clair )
+
+
+Chaines de caractères
+------------------------
+" Hello , world ! " ---> #CE9178 ( orange brun )
+
+
+Commentaires 
+----------------
+// commentaires 
+ou
+/* 
+commentaires 
+*/ ---> #6A9955 ( vert )
+
+
+Déclarations de fonctions
+---------------------------
+Void , fonction() --> #DCDCAA ( jaune or )
+
+
+Pointeurs et références
+------------------------
+* , & --> #D4D4D4 ( blanc/gris clair )
+
+
+Structures et Unions
+---------------------
+struct, union ---> #4EC9B0 ( vert cyan )
+
+
+Énumération
+-------------
+enum ---> #4EC9B0 ( vert cyan )
+
+
+Macros
+--------
+#define MAX 100 ---> #C586C0 ( violet )
+
+
+Booléens ( C99+ )
+-------------------
+true , false --- > #569CD6 ( bleu clair )
